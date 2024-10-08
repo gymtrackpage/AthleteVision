@@ -2,6 +2,58 @@
 // npm init -y
 // npm install express multer @google-cloud/vision
 
+
+// Installing MongoDB
+const { MongoClient } = require('mongodb');
+
+// Connection string from MongoDB Atlas
+const uri = "mongodb+srv://jdlee9900:yXTcINDnTt9JMlTT@gymtrack.o4ojt.mongodb.net/?retryWrites=true&w=majority&appName=gymtrack";
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function connectToDatabase() {
+  try {
+    await client.connect();
+    console.log("Connected successfully to MongoDB");
+    const db = client.db("workout_tracker"); // You can name your database here
+    return db;
+  } catch (e) {
+    console.error("Could not connect to MongoDB", e);
+    process.exit(1);
+  }
+}
+
+// Example function to store workout data
+async function storeWorkoutData(data) {
+  const db = await connectToDatabase();
+  const collection = db.collection("workouts");
+  const result = await collection.insertOne(data);
+  console.log(`Workout stored with id: ${result.insertedId}`);
+  return result;
+}
+
+// Don't forget to close the connection when your server shuts down
+process.on('SIGINT', async () => {
+  await client.close();
+  process.exit(0);
+});
+
+// You can now use storeWorkoutData in your route handlers
+// For example:
+app.post('/upload', upload.single('image'), async (req, res) => {
+  try {
+    // ... your existing OCR processing code ...
+    const processedData = processOCRResults(fullTextAnnotation.text);
+    await storeWorkoutData(processedData);
+    res.json({ message: 'Workout uploaded and stored successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred during processing' });
+  }
+});
+
+// The rest of the code
+
 const express = require('express');
 const multer = require('multer');
 const vision = require('@google-cloud/vision');
