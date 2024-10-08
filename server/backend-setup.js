@@ -1,7 +1,7 @@
 // Install necessary packages:
 // npm init -y
 // npm install express multer @google-cloud/vision
-
+// npm install @google-cloud/vision mongodb
 
 // Installing MongoDB
 const { MongoClient } = require('mongodb');
