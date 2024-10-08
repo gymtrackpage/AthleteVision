@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "athletevision",
+  "private_key_id": "82b7a546e0a7d21dc28991401cf98564ad25aca6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDSGJ8uSk03/MT5\nw7ZNA0Ox+XCIXiJoY8kOOLEVCw1RIx9dS7JIue8xTKNuiBO23bwuCxxqAGFJz+pg\ntLbZvN6HoRMme/oSqCLRo1PFs9ZTP0t5XKXtQ1FGW+3JLt4czv1Z9AQeyCePrVV1\nykXp6NBh8jYgzPDloX/wrEQXVyrLTnEQEe1A43wJiPNsf63r4QAWFXA/bHOxWoiJ\nh0RSD6xOAnpO32+I3gHJBcWoWXzEG7BF7DpWgG6fEKJkBA16VPuo5c/Efc7zbvRC\nYwM4qZgHEylQEfOKK4bNufb0MEhC+kQUP0E9yd4q7hdAZhxnCi8/kU6M0jBUpHF+\nW6ExB0ETAgMBAAECggEAN+QR8LQWf8bwNcuhYzJzn1SO4dA9Eg09rtlZDpKOm9+e\nl+iryJoiLjjHn3920yaAybTt/asVNpgnr0tT+2+5uVYZ7Jp9p9nvzVpITmdtpF7J\nusLxZ0GJzRBmnScpMnvEPVpjgDbaA2hmvDuvxq7HRM81JBuxGD2S9hk10gm/2i6L\ny2FJuaknkTEKwq4AhIx2rfaT15TPVRQv27/7EXCKel2TSSZjbGoxr9ryixV8h+3s\nYqwKBs9td5JH1U7m+/kOT/1DR2Jz4ccrDWBdUJWC4fZFUb1MocPbsEEoyTU65F+1\naZjqMbDhzXGh5UjGevNN5BUWiE5WM62eHA0Zv2NGNQKBgQD4LYtZBE+/o0HFfeLB\nADo4YgBQ32ldGtNIj2TlvLbMCnu/wuM7NF1xPwr4//jcgnaV4k5qTRpUSnj7Okds\nbfP7hQ+y69hpKgIgKlMBscZtSMDv+Yk5gYb82b8dw4MNFVUV58+6J+GmIgdfAcEd\n4AXSAPSxfq5gkTdELbE37b7KfQKBgQDYt89iwt/aHSjo97aCNQwhOuGBZmPLlC29\ncuL52wTX6QQnN2BJSU/G7vLx+5iNywoVnZaQO00uSu8ws813gM3Up2+4cgqhGPjv\nEwb8ys7/55ZFSk7tR0Dh595CS/sAQlU1rCBMZNobrRQpBdTYD4LOcuwSXQ71+iAR\nz3Rx3/h+zwKBgBVtCSzEPIZU9+au+ZakCGK5w0E4KIaLPFZ1Wsaixj1TYl+p2ahQ\n2whd4vqgTsHq2YYTJaXzxiQk0dEOtP/ddkTute5CgkqB//D69nOc/36L22xcZMZ8\nMkU+H0vYh0Xn45KiksKFkuue4HgJVLzZjGcXAgkY4MEhiF3we+5SLjiZAoGAToes\nupjrDNpsLJ82n1AhqRjxBjbYCrkTKgcrgGaBBswFGUDTvzq1kdycZFtLGHZunQ6R\ntIoImbHFotxEo/0kmN5jeW65s06dReSbL5c+EzUUGt+mYgzj0fh3bYai2aEvx1cs\nDQKulkDNgV//lJtqRu0V5kGaXj/YxxtpkqoaHbkCgYB1MtuYCDGAmkzVo8vw8Kyq\n60hUJWVQkgpDoBn8bi7bIT2OJpFYmd3k2KwqIWyCBTPw1ENssb8qovO0j5r9XcO3\nH7ytpFDxLavcx9haRsCqxaMKvRJqVp3SnCGRkTuqjnEb2XY/WCYqy6DyCrgEyKJz\nNTiKZgqE4SHzoyjVAtlXHg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "vision@athletevision.iam.gserviceaccount.com",
+  "client_id": "110221964080928098876",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vision%40athletevision.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
