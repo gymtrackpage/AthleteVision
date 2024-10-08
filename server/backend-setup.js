@@ -23,6 +23,15 @@ async function connectToDatabase() {
   }
 }
 
+//connect to Googke Vision API
+// In your main server file (e.g., server.js or index.js)
+const path = require('path');
+const vision = require('@google-cloud/vision');
+
+const client = new vision.ImageAnnotatorClient({
+  keyFilename: path.join(__dirname, '../config', 'google-cloud-vision-credentials.json')
+});
+
 // Example function to store workout data
 async function storeWorkoutData(data) {
   const db = await connectToDatabase();
