@@ -57,30 +57,32 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 const express = require('express');
 const multer = require('multer');
 const vision = require('@google-cloud/vision');
-const path = require('path');
+const { processOCRResults } = require('./ocrProcessing');
+const { storeWorkoutData } = require('./dataStorage');
 
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
 // Google Cloud Vision client
 const client = new vision.ImageAnnotatorClient({
-  keyFilename: path.join(__dirname, 'path/to/your/google-cloud-credentials.json')
+  keyFilename: 'path/to/your/google-cloud-credentials.json'
 });
 
 app.post('/upload', upload.single('image'), async (req, res) => {
   try {
+    // Perform OCR
     const [result] = await client.documentTextDetection(req.file.path);
     const fullTextAnnotation = result.fullTextAnnotation;
-    
-    // Process the OCR results (you'll need to implement this function)
-    const processedData = processOCRResults(fullTextAnnotation.text);
 
-    // Store the processed data (you'll need to implement this function)
-    await storeWorkoutData(processedData);
+    // Process OCR results
+    const processedData = processOCRResults(fullTextAnnotation);
 
-    res.json({ message: 'Workout uploaded successfully', data: processedData });
+    // Store processed data
+    const storedId = await storeWorkoutData(processedData);
+
+    res.json({ message: 'Workout uploaded and stored successfully', id: storedId });
   } catch (error) {
-    console.error(error);
+    console.error('Error processing upload:', error);
     res.status(500).json({ error: 'An error occurred during processing' });
   }
 });
