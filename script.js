@@ -47,3 +47,34 @@ function uploadImage() {
         alert('Please select an image.');
     }
 }
+function saveWorkout(ocrData) {
+    fetch('http://localhost:3000/saveWorkout', {  // Change this to your backend URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: ocrData }) // Send OCR data as workout log
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Workout saved:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+function loadWorkouts() {
+    fetch('http://localhost:3000/getWorkouts') // Change this to your backend URL
+    .then(response => response.json())
+    .then(data => {
+        const logDiv = document.getElementById('log-entries');
+        logDiv.innerHTML = ''; // Clear previous entries
+
+        data.forEach(workout => {
+            logDiv.innerHTML += `<p>${workout.text}</p>`;
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching workouts:', error);
+    });
+}
