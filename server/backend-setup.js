@@ -2,26 +2,37 @@
 // npm init -y
 // npm install express multer @google-cloud/vision
 // npm install @google-cloud/vision mongodb
+// npm install dotenv
 
 // Installing MongoDB
+// At the top of your server file
+require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
-// Connection string from MongoDB Atlas
-const uri = "mongodb+srv://jdlee9900:yXTcINDnTt9JMlTT@gymtrack.o4ojt.mongodb.net/?retryWrites=true&w=majority&appName=gymtrack";
-
+const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function connectToDatabase() {
   try {
     await client.connect();
     console.log("Connected successfully to MongoDB");
-    const db = client.db("workout_tracker"); // You can name your database here
-    return db;
+    return client.db("workout_tracker"); // You can name your database here
   } catch (e) {
     console.error("Could not connect to MongoDB", e);
     process.exit(1);
   }
 }
+
+// Example usage in your route
+app.post('/upload', upload.single('image'), async (req, res) => {
+  try {
+    const db = await connectToDatabase();
+    // ... rest of your code ...
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
 
 //connect to Googke Vision API
 // In your main server file (e.g., server.js or index.js)
