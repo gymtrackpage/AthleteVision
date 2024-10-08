@@ -6,7 +6,7 @@ function uploadImage() {
         reader.onload = () => {
             const imageData = reader.result.replace(/^data:image\/(png|jpeg);base64,/, '');
 
-            fetch(`https://vision.googleapis.com/v1/images:annotate?key=82b7a546e0a7d21dc28991401cf98564ad25aca6`, {
+            fetch(`https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDo8Sew3VrKJFR1TRlhl-jd0-m4TKxlrqM`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
